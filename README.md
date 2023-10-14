@@ -7,3 +7,5 @@ A WIP BepInEx plugin for Harvest Moon: The Winds of Anthos that adds a few quali
 - Skip Intro Logos
 - Debug menu enabler (Press right thumbstick)
 - Show favorability, gift status, and talk status for NPC in the NPC menu
+
+![alt text](screenshots/screen1.jpg)
