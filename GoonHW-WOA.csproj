@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>GoonHW_WOA</AssemblyName>
+    <Description>A BepInEx mod for Harvest Moon: The Winds of Anthos</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>GoonHW_WOA</RootNamespace>
+  </PropertyGroup>
+
+  <Target Name="CopyBinariesToGameDBG" AfterTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
+    <Message Text="Executing CopyBinariesToGameDBG task" Importance="High" />
+    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHW_WOA.dll" ContinueOnError="true" />
+    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHW_WOA.pdb" ContinueOnError="true" />
+    <Copy SourceFiles="$(OutDir)\GoonHW_WOA.dll" DestinationFolder="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins" />
+    <Copy SourceFiles="$(OutDir)\GoonHW_WOA.pdb" DestinationFolder="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins" />
+  </Target>
+  <Target Name="CopyBinariesToGameREL" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
+    <Message Text="Executing CopyBinariesToGameREL task" Importance="High" />
+    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHW_WOA.dll" ContinueOnError="true" />
+    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHW_WOA.pdb" ContinueOnError="true" />
+    <Copy SourceFiles="$(OutDir)\GoonHW_WOA.dll" DestinationFolder="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Unity.Mono" Version="6.0.0-be.*" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+	<PackageReference Include="UnityEngine.Modules" Version="2022.1.3" IncludeAssets="compile" />
+    <Reference Include="UnityEngine.UI">
+        <HintPath>libs\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+        <HintPath>libs\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+        <HintPath>libs\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+        <HintPath>libs\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+        <HintPath>libs\Assembly-CSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
