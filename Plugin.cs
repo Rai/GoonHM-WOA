@@ -23,6 +23,10 @@ public partial class GoonHW_WOA : BaseUnityPlugin
         Harmony.CreateAndPatchAll(typeof(ConveniencePatches)); // Skip intro, etc..
         //debug menu
         Harmony.CreateAndPatchAll(typeof(DebugMenuWindowConstructorBaseMethods));
+        if(enableDebugMenu4KResize.Value)
+        {
+            Harmony.CreateAndPatchAll(typeof(DebugMenu4KResize));
+        }
         Harmony.CreateAndPatchAll(typeof(GoonMenuTest));
         Harmony.CreateAndPatchAll(typeof(ItemMenuReplace));
     }

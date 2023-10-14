@@ -6,6 +6,7 @@ namespace GoonHW_WOA;
 public partial class GoonHW_WOA
 {
     public static ConfigEntry<bool> enableDebugMenu;
+    public static ConfigEntry<bool> enableDebugMenu4KResize;
     public static ConfigEntry<bool> skipIntro;
     public static ConfigEntry<bool> showItemIdInInventory;
     public static ConfigEntry<bool> showItemResourceInInventory;
@@ -17,6 +18,7 @@ public partial class GoonHW_WOA
     private void InitConfig()
     {
         enableDebugMenu = Config.Bind<bool>("General", "Enable Debug Menu", true, "Enable debug menu.");
+        enableDebugMenu4KResize = Config.Bind<bool>("General", "Enable Debug Menu 4K Resize", false, "Enable debug menu 4K resize.");
         skipIntro = Config.Bind<bool>("General", "Skip Intro", true, "Skip the intro.");
 
         showFavorabilityInNpcNote = Config.Bind<bool>("NpcMenu", "Show Favorability", true, "Show favorability in NPC description.");
