@@ -1,5 +1,4 @@
 ﻿using BepInEx;
-using BepInEx.Unity.Mono;
 using BepInEx.Logging;
 using HarmonyLib;
 using UnityEngine.InputSystem;
@@ -7,7 +6,7 @@ using debug;
 
 namespace GoonHW_WOA;
 
-[BepInPlugin("org.bepinex.plugins.goonhmwoa", "GoonHM-WOA", "1.0.1.0")]
+[BepInPlugin("org.bepinex.plugins.goonhmwoa", "GoonHM-WOA", "1.0.2.0")]
 [BepInProcess("Harvest Moon The Winds of Anthos.exe")]
 public partial class GoonHW_WOA : BaseUnityPlugin
 {

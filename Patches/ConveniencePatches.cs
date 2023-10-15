@@ -17,7 +17,7 @@ public class ConveniencePatches
 
         [HarmonyPatch(typeof(ItemBagItemDetail), "ViewItemDetail")]
         [HarmonyPostfix]
-        public static void ItemBagItemDetail_ViewItemDetail(ref ItemBagItemDetail __instance, ref TextMeshProEx ____itemName, Table.ITEMCATEGORYGROUP.Defs categoryGroup, Table.ITEMPARAM.Defs itemId, Sprite iconSprite, string itemName)
+        public static void ItemBagItemDetail_ViewItemDetail(ref ItemBagItemDetail __instance, ref TextMeshProEx ____itemName, Table.ITEMCATEGORYGROUP.Defs categoryGroup, ref Table.ITEMPARAM.Defs itemId, Sprite iconSprite, string itemName)
         {
             if(GoonHW_WOA.showItemIdInInventory.Value)
                 ____itemName.text = itemName + " - " + ((uint)itemId) + (GoonHW_WOA.showItemResourceInInventory.Value ? " - " + itemId.ToString() : "");
