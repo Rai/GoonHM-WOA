@@ -15,3 +15,4 @@ A WIP BepInEx plugin for Harvest Moon: The Winds of Anthos that adds a few quali
 2. Extract the archive to your Harvest Moon directory
 3. Download the plugin from the releases page and extract to the `BepInEx\plugins` directory
 4. Start the game at least once to generate the configuration file, and you can edit it in `BepInEx\config`
+5. To get the debug menu to work, you need to edit `BepInEx.cfg` in `BepInEx\config` directory and change `HideManagerGameObject` to true.
