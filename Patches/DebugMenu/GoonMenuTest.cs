@@ -2,6 +2,8 @@ using HarmonyLib;
 using debug;
 using npc;
 using Table;
+using System.IO;
+using System.Text;
 
 namespace GoonHW_WOA;
 
@@ -44,10 +46,28 @@ public class GoonMenuTest {
                 SingletonMonoBehaviour<GameInfo>.Instance.NpcInfo.AddFavorability(selected, 0.1f);
             });
 
+            goonmenu.AddButton("Dump Items", () => {
+                DumpItems();
+            });
+
             goonmenu.SetActionToBackButton(true, () => {DebugMenuWindowConstructorBaseMethods.CloseDebugSubWindow(__instance);});
             goonmenu.FinalizeWindow();
 
             // Populate any data here.
         });
+    }
+
+    private static void DumpItems()
+    {
+        ItemParam_accessor itemParam = TableAccessor.ItemParam;
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine("Name,UID,Quality");
+        for(int i = 1; i < itemParam.GetSize(); i++)
+        {
+            var item = itemParam.GetDataFromIndex(i);
+            string name = Msg.MessageManager.Instance.GetMessage((int)item.name);
+            sb.AppendLine($"{name},{item.uid},{item.quality+1}");
+        }
+        File.WriteAllText("HMWOA-Items.csv", sb.ToString());
     }
 }
