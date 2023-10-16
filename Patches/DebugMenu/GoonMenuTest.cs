@@ -32,7 +32,7 @@ public class GoonMenuTest {
                 for (int i = 1; i < npcData.Length; i++)
                 {
                     int nameMessageId = (int)npcNoteParam.get_name_msg(i);
-                    GoonHW_WOA.Log.LogInfo($"{Msg.MessageManager.Instance.GetMessage(nameMessageId)}\tFavorability: {npcData[i]._favorability}\tGifted: {(npcData[i]._gift ? "Yes" : "No")}\tTalked: {(npcData[i]._talked ? "Yes" : "No")}");
+                    GoonHW_WOA.Log.LogInfo($"{Msg.MessageManager.Instance.GetMessage(nameMessageId)}\t\tFavorability: {npcData[i]._favorability}\t\tGifted: {(npcData[i]._gift ? "Yes" : "No")}\tTalked: {(npcData[i]._talked ? "Yes" : "No")}");
                 }
             });
 
@@ -48,6 +48,13 @@ public class GoonMenuTest {
 
             goonmenu.AddButton("Dump Items", () => {
                 DumpItems();
+            });
+
+            goonmenu.AddButton("Set Inventory Slots to 25", () => {
+                item.ItemInfo ii = SingletonMonoBehaviour<GameInfo>.Instance.ItemInfo;
+                ii.ChangeCapacity(ITEMCATEGORYGROUP.Defs.Items, 25);
+                ii.ChangeCapacity(ITEMCATEGORYGROUP.Defs.Foods, 25);
+                ii.ChangeCapacity(ITEMCATEGORYGROUP.Defs.Materials, 25);
             });
 
             goonmenu.SetActionToBackButton(true, () => {DebugMenuWindowConstructorBaseMethods.CloseDebugSubWindow(__instance);});

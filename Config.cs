@@ -8,6 +8,7 @@ public partial class GoonHW_WOA
     public static ConfigEntry<bool> enableDebugMenu;
     public static ConfigEntry<bool> enableDebugMenu4KResize;
     public static ConfigEntry<bool> skipIntro;
+    //public static ConfigEntry<bool> useBorderlessWindow;
     public static ConfigEntry<bool> showItemIdInInventory;
     public static ConfigEntry<bool> showItemResourceInInventory;
 
@@ -20,6 +21,8 @@ public partial class GoonHW_WOA
         enableDebugMenu = Config.Bind<bool>("General", "Enable Debug Menu", true, "Enable debug menu.");
         enableDebugMenu4KResize = Config.Bind<bool>("General", "Enable Debug Menu 4K Resize", false, "Enable debug menu 4K resize.");
         skipIntro = Config.Bind<bool>("General", "Skip Intro", true, "Skip the intro.");
+
+        //useBorderlessWindow = Config.Bind<bool>("Screen", "Use Borderless Window", true, "Use borderless window.");
 
         showFavorabilityInNpcNote = Config.Bind<bool>("NpcMenu", "Show Favorability", true, "Show favorability in NPC description.");
         showGiftedAndTalkedInNpcNote = Config.Bind<bool>("NpcMenu", "Show Gifted and Talked", true, "Show gifted and talked status in NPC description.");
