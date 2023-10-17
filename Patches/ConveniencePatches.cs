@@ -27,70 +27,85 @@ public class ConveniencePatches
         [HarmonyPostfix]
         public static void SetId_Flower(int idx, ref TextMeshProEx ____name)
         {
-            Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
-            int id = encyclopediaParam.get_item_id(idx + 183);
-            if(GoonHW_WOA.showItemIdInInventory.Value)
+            if(GoonHW_WOA.showItemIdInInventory.Value){
+                Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
+                int id = encyclopediaParam.get_item_id(idx + 183);
                 ____name.text = ____name.text + " - " + id;
+            }
         }
 
         [HarmonyPatch(typeof(EncyclopediaDetailOre), "SetId")]
         [HarmonyPostfix]
         public static void SetId_Ore(int idx, ref TextMeshProEx ____name)
         {
-            Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
-            int id = encyclopediaParam.get_item_id(idx + 534);
-            if(GoonHW_WOA.showItemIdInInventory.Value)
+            if(GoonHW_WOA.showItemIdInInventory.Value){
+                Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
+                int id = encyclopediaParam.get_item_id(idx + 534);
                 ____name.text = ____name.text + " - " + id;
+            }
         }
 
         [HarmonyPatch(typeof(EncyclopediaDetailFish), "SetId")]
         [HarmonyPostfix]
         public static void SetId_Fish(int idx, ref TextMeshProEx ____name)
         {
-            Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
-            int id = encyclopediaParam.get_item_id(idx + 467);
-            if(GoonHW_WOA.showItemIdInInventory.Value)
+            if(GoonHW_WOA.showItemIdInInventory.Value){
+                Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
+                int id = encyclopediaParam.get_item_id(idx + 467);
                 ____name.text = ____name.text + " - " + id;
+            }
         }
                 
         [HarmonyPatch(typeof(EncyclopediaDetailCrop), "SetId")]
         [HarmonyPostfix]
         public static void SetId_Crop(int idx, ref TextMeshProEx ____name)
         {
-            Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
-            int id = encyclopediaParam.get_item_id(idx + 1);
-            if(GoonHW_WOA.showItemIdInInventory.Value)
+            if(GoonHW_WOA.showItemIdInInventory.Value){
+                Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
+                int id = encyclopediaParam.get_item_id(idx + 1);
                 ____name.text = ____name.text + " - " + id;
+            }
         }
 
         [HarmonyPatch(typeof(EncyclopediaDetailCooking), "SetId")]
         [HarmonyPostfix]
         public static void SetId_Cooking(int idx, ref TextMeshProEx ____name)
         {
-            Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
-            int id = encyclopediaParam.get_item_id(idx + 304);
-            if(GoonHW_WOA.showItemIdInInventory.Value)
+            if(GoonHW_WOA.showItemIdInInventory.Value){
+                Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
+                int id = encyclopediaParam.get_item_id(idx + 304);
                 ____name.text = ____name.text + " - " + id;
+            }
         }
 
         [HarmonyPatch(typeof(EncyclopediaDetailCollection), "SetId")]
         [HarmonyPostfix]
         public static void SetId_Collection(int idx, ref TextMeshProEx ____name)
         {
-            Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
-            int id = encyclopediaParam.get_item_id(idx + 265);
-            if(GoonHW_WOA.showItemIdInInventory.Value)
+            if(GoonHW_WOA.showItemIdInInventory.Value){
+                Table.EncyclopediaParam_accessor encyclopediaParam = Table.TableAccessor.EncyclopediaParam;
+                int id = encyclopediaParam.get_item_id(idx + 265);
                 ____name.text = ____name.text + " - " + id;
+            }
         }
 
         [HarmonyPatch(typeof(QuestDetailItem), "SetRequest")]
         [HarmonyPostfix]
         public static void SetRequest(uint tableIdx, int idx, ref TextMeshProEx ____name)
         {
-            Table.QuestParam_accessor questParam = Table.TableAccessor.QuestParam;
-			uint uid = (uint)questParam.get_Request_item(tableIdx, idx);
-            if(GoonHW_WOA.showItemIdInInventory.Value)
+            if(GoonHW_WOA.showItemIdInInventory.Value){
+                Table.QuestParam_accessor questParam = Table.TableAccessor.QuestParam;
+                uint uid = (uint)questParam.get_Request_item(tableIdx, idx);
                 ____name.text = ____name.text + "(" + uid + ")";
+            }
+        }
+
+        [HarmonyPatch(typeof(NpcNoteFavoriteItem), "SetItem")]
+        [HarmonyPostfix]
+        public static void NpcNoteFavoriteItem_SetItem(int itemParamIdx, ref TextMeshProEx ____itemName)
+        {
+            if(GoonHW_WOA.showItemIdInInventory.Value)
+                ____itemName.text = ____itemName.text + " - " + itemParamIdx;
         }
 
         [HarmonyPatch(typeof(NpcNoteDetail), "UpdateDetails")]

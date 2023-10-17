@@ -59,8 +59,6 @@ public class GoonMenuTest {
 
             goonmenu.SetActionToBackButton(true, () => {DebugMenuWindowConstructorBaseMethods.CloseDebugSubWindow(__instance);});
             goonmenu.FinalizeWindow();
-
-            // Populate any data here.
         });
     }
 
