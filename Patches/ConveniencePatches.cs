@@ -1,6 +1,7 @@
 using HarmonyLib;
 using UnityEngine;
 using ui;
+using Table;
 
 namespace GoonHW_WOA;
 
@@ -102,10 +103,10 @@ public class ConveniencePatches
 
         [HarmonyPatch(typeof(NpcNoteFavoriteItem), "SetItem")]
         [HarmonyPostfix]
-        public static void NpcNoteFavoriteItem_SetItem(int itemParamIdx, ref TextMeshProEx ____itemName)
+        public static void NpcNoteFavoriteItem_SetItem(int itemParamIdx, bool isHide, ref TextMeshProEx ____name)
         {
-            if(GoonHW_WOA.showItemIdInInventory.Value)
-                ____itemName.text = ____itemName.text + " - " + itemParamIdx;
+            if(GoonHW_WOA.showItemIdInInventory.Value && !isHide)
+                ____name.text = ____name.text + "(" + itemParamIdx + ")";
         }
 
         [HarmonyPatch(typeof(NpcNoteDetail), "UpdateDetails")]
@@ -122,6 +123,22 @@ public class ConveniencePatches
             ____npcDetail.text = ____npcDetail.text + "\n"
             + (GoonHW_WOA.showFavorabilityInNpcNote.Value ? $"Favorability: {fav}" : "") 
             + (GoonHW_WOA.showGiftedAndTalkedInNpcNote.Value ? $" Gifted: {(gifted ? "yes" : "no")} Talked: {(talked ? "yes" : "no")}" : "");
+        }
+
+        [HarmonyPatch(typeof(shop.ShopSellDetail), "UpdateItemDetail")]
+        [HarmonyPostfix]
+        public static void ShopSellDetail_UpdateItemDetail(ref TextMeshProEx ____name, int idx)
+        {
+            if(GoonHW_WOA.showItemIdInInventory.Value)
+                ____name.text = ____name.text + " - " + ((uint)idx);
+        }
+
+        [HarmonyPatch(typeof(shop.ItemShopRequestItem), "SetUp")]
+        [HarmonyPostfix]
+        public static void ItemShopRequestItem_SetUp(ref TextMeshProEx ____name, uint itemId, int baseNum)
+        {
+            if(GoonHW_WOA.showItemIdInInventory.Value)
+                ____name.text = ____name.text + "(" + itemId + ")";
         }
 
         // [HarmonyPatch(typeof(AnimalNoteDetail), "UpdateDetails")]
