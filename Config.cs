@@ -1,9 +1,9 @@
 using BepInEx.Configuration;
 using System;
 
-namespace GoonHW_WOA;
+namespace GoonHM_WOA;
 
-public partial class GoonHW_WOA
+public partial class GoonHM_WOA
 {
     public static ConfigEntry<bool> enableDebugMenu;
     public static ConfigEntry<bool> enableDebugMenu4KResize;

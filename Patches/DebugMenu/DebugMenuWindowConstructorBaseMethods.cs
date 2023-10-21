@@ -2,7 +2,7 @@ using System;
 using HarmonyLib;
 using debug;
 
-namespace GoonHW_WOA;
+namespace GoonHM_WOA;
 
 [HarmonyPatch]
 public static class DebugMenuWindowConstructorBaseMethods {

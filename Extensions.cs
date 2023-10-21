@@ -1,7 +1,7 @@
 using HarmonyLib;
 using npc;
 
-namespace GoonHW_WOA
+namespace GoonHM_WOA
 {
     public static class Extensions
     {

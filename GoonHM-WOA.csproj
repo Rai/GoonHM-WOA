@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyName>GoonHW_WOA</AssemblyName>
+    <AssemblyName>GoonHM_WOA</AssemblyName>
     <Description>A BepInEx mod for Harvest Moon: The Winds of Anthos</Description>
     <Version>1.0.4.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -11,21 +11,21 @@
       https://nuget.bepinex.dev/v3/index.json;
       https://nuget.samboy.dev/v3/index.json
     </RestoreAdditionalProjectSources>
-    <RootNamespace>GoonHW_WOA</RootNamespace>
+    <RootNamespace>GoonHM_WOA</RootNamespace>
   </PropertyGroup>
 
   <Target Name="CopyBinariesToGameDBG" AfterTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
     <Message Text="Executing CopyBinariesToGameDBG task" Importance="High" />
-    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHW_WOA.dll" ContinueOnError="true" />
-    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHW_WOA.pdb" ContinueOnError="true" />
-    <Copy SourceFiles="$(OutDir)\GoonHW_WOA.dll" DestinationFolder="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins" />
-    <Copy SourceFiles="$(OutDir)\GoonHW_WOA.pdb" DestinationFolder="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins" />
+    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHM_WOA.dll" ContinueOnError="true" />
+    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHM_WOA.pdb" ContinueOnError="true" />
+    <Copy SourceFiles="$(OutDir)\GoonHM_WOA.dll" DestinationFolder="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins" />
+    <Copy SourceFiles="$(OutDir)\GoonHM_WOA.pdb" DestinationFolder="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins" />
   </Target>
   <Target Name="CopyBinariesToGameREL" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
     <Message Text="Executing CopyBinariesToGameREL task" Importance="High" />
-    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHW_WOA.dll" ContinueOnError="true" />
-    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHW_WOA.pdb" ContinueOnError="true" />
-    <Copy SourceFiles="$(OutDir)\GoonHW_WOA.dll" DestinationFolder="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins" />
+    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHM_WOA.dll" ContinueOnError="true" />
+    <Delete Files="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins\GoonHM_WOA.pdb" ContinueOnError="true" />
+    <Copy SourceFiles="$(OutDir)\GoonHM_WOA.dll" DestinationFolder="P:\SteamLibrary\steamapps\common\Harvest Moon The Winds of Anthos\BepInEx\plugins" />
   </Target>
 
   <ItemGroup>

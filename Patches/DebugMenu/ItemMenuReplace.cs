@@ -7,7 +7,7 @@ using item;
 using gimmick;
 using System.Collections.Generic;
 
-namespace GoonHW_WOA;
+namespace GoonHM_WOA;
 
 [HarmonyPatch]
 public class ItemMenuReplace {

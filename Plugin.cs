@@ -4,11 +4,11 @@ using HarmonyLib;
 using UnityEngine.InputSystem;
 using debug;
 
-namespace GoonHW_WOA;
+namespace GoonHM_WOA;
 
 [BepInPlugin("org.bepinex.plugins.goonhmwoa", "GoonHM-WOA", "1.0.4.0")]
 [BepInProcess("Harvest Moon The Winds of Anthos.exe")]
-public partial class GoonHW_WOA : BaseUnityPlugin
+public partial class GoonHM_WOA : BaseUnityPlugin
 {
     public static ManualLogSource Log;
 

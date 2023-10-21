@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 
-namespace GoonHW_WOA;
+namespace GoonHM_WOA;
 
 [HarmonyPatch]
 public class DebugMenu4KResize {
